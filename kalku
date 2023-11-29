@@ -1,0 +1,68 @@
+<Window x:Class="formularze.Window2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:formularze"
+        mc:Ignorable="d"
+        Title="Window2" Height="450" Width="800">
+    <StackPanel>
+        <Label Content="podaj 1sza liczbe"></Label>
+        <TextBox x:Name="liczba1"></TextBox>
+
+        <Label Content="podaj 2ga liczbe"></Label>
+        <TextBox x:Name="liczba2"></TextBox>
+
+        <Button Click="Button_Click">Oblicz sume</Button>
+        
+        <Label>Wpisano</Label>
+        <Label Content="{Binding ElementName=liczba1, Path=Text}"></Label>
+        <Label Content="{Binding ElementName=liczba2, Path=Text}"></Label>
+        <Label x:Name="wynik"></Label>
+
+        
+    </StackPanel>
+</Window>
+
+
+
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
+
+namespace formularze
+{
+    /// <summary>
+    /// Logika interakcji dla klasy Window2.xaml
+    /// </summary>
+    public partial class Window2 : Window
+    {
+        public Window2()
+        {
+            InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (int.TryParse(liczba1.Text, out int a) && int.TryParse(liczba2.Text, out int b){
+                int w = a + b;
+                wynik.Content = "Wynik dodawania: " + w;
+            }
+        }
+    }
+}
